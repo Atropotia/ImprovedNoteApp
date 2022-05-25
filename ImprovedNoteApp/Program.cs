@@ -18,10 +18,6 @@ namespace ImprovedNoteApp
             if (!File.Exists(path))
             {
                 FileInfo fi1 = new FileInfo(path);
-                using (StreamWriter sw = fi1.CreateText())
-                {
-                    sw.WriteLine($"0#{DateTime.Now}#AA#0#0#{DateTime.Now}#0#AA");
-                }
             }
 
             else
@@ -34,7 +30,7 @@ namespace ImprovedNoteApp
                 {
                     bool exit = false;
                 Console.WriteLine($"Доброго времени суток.\n Нажмите 1 чтобы вывести данные на экран" +
-                $"\n Нажмите 2, чтобы заполнить данные и добавить новую запись в конец файла." +
+                $"\n Нажмите 2 для добавления сотрудника" +
                 $"\n Нажмите 3 для удаления определённых данных" +
                 $"\n Нажмите 4 для редактирования данных" +
                 $"\n Нажмите 5 для того чтобы показать сотрудников в диапазоне определённых дат" +
@@ -68,7 +64,7 @@ namespace ImprovedNoteApp
                         case 0:
                             Exit();
                             exit = true;
-                            break;
+                            return;
                         default:
                             break;
 
@@ -117,12 +113,12 @@ namespace ImprovedNoteApp
             {
                 foreach (Worker employee in worker)
                 {
-                    sw.WriteLine($"{employee.iD}#" +
-                                 $"{employee.currentTime}#" +
-                                 $"{employee.name}#" +
-                                 $"{employee.age}#" +
-                                 $"{employee.height}#" +
-                                 $"{employee.birthDate}#" +
+                    sw.WriteLine($"{employee.iD}#" + " " +
+                                 $"{employee.currentTime}#" + " " +
+                                 $"{employee.name}#" + " " +
+                                 $"{employee.age}#" + " " +
+                                 $"{employee.height}#" + " " +
+                                 $"{employee.birthDate}#" + " " +
                                  $"{employee.birthPlace}");
                 }
             }
@@ -139,7 +135,7 @@ namespace ImprovedNoteApp
                 Console.Write($"Редактируемые данные о работнике: {worker[cid].iD} ");
                 ID = cid;
             }
-            catch (Exception e)
+            catch
             {
                 Console.Write($"Введите верный ID");
                 Console.ReadKey();
@@ -179,12 +175,12 @@ namespace ImprovedNoteApp
             {
                 if (employee.currentTime >= min && employee.currentTime <= max)
                 {
-                    Console.WriteLine($"{employee.iD}" +
-                                 $"{employee.currentTime}" +
-                                 $"{employee.name}#" +
-                                 $"{employee.age}#" +
-                                 $"{employee.height}#" +
-                                 $"{employee.birthDate}#" +
+                    Console.WriteLine($"{employee.iD}" + " " +
+                                 $"{employee.currentTime}" + " " +
+                                 $"{employee.name}#" + " " +
+                                 $"{employee.age}#" + " " +
+                                 $"{employee.height}#" + " " +
+                                 $"{employee.birthDate}#" + " " +
                                  $"{employee.birthPlace}");
                 }
             }
@@ -202,12 +198,12 @@ namespace ImprovedNoteApp
             {
                 foreach (Worker employee in worker)
                 {
-                    Console.WriteLine($"{employee.iD}" +
-                                 $"{employee.currentTime}" +
-                                 $"{employee.name}#" +
-                                 $"{employee.age}#" +
-                                 $"{employee.height}#" +
-                                 $"{employee.birthDate}#" +
+                    Console.WriteLine($"{employee.iD}" + " " +
+                                 $"{employee.currentTime}" + " " +
+                                 $"{employee.name}" + " " +
+                                 $"{employee.age}" + " " +
+                                 $"{employee.height}" + " " +
+                                 $"{employee.birthDate}" + " " +
                                  $"{employee.birthPlace}");
                 }
             }
@@ -227,7 +223,7 @@ namespace ImprovedNoteApp
             {
                 counter[i] = worker[i].currentTime;
                 list[i] =
-                    worker[i].iD + "-" +
+                    worker[i].iD + " " +
                     worker[i].name + " " +
                     worker[i].age + " " +
                     worker[i].height + " " +
@@ -239,7 +235,7 @@ namespace ImprovedNoteApp
 
             for (int i = 0; i < counter.Length; i++)
             {
-                int found = list[i].IndexOf("~");
+                int found = list[i].IndexOf(" ");
                 Console.WriteLine(list[i].Substring(0, found) + "   " + counter[i] + "  " + list[i].Substring(found + 1));
             }
 
@@ -258,7 +254,7 @@ namespace ImprovedNoteApp
             {
                 counter[i] = worker[i].currentTime;
                 list[i] =
-                    worker[i].iD + "-" +
+                    worker[i].iD + " " +
                     worker[i].name + " " +
                     worker[i].age + " " +
                     worker[i].height + " " +
@@ -270,7 +266,7 @@ namespace ImprovedNoteApp
 
             for (int i = counter.Length - 1; i >= 0; i--)
             {
-                int found = list[i].IndexOf("-");
+                int found = list[i].IndexOf(" ");
                 Console.WriteLine(list[i].Substring(0, found) + "   " + counter[i] + "  " + list[i].Substring(found + 1));
             }
 
@@ -285,12 +281,12 @@ namespace ImprovedNoteApp
             Console.WriteLine("Для сохранения и выхода нажмите ENTER, для выхода без созранения введите N и нажмите ENTER:");
             if (Console.ReadLine() == "N")
             {
-                Console.WriteLine("Выход без сохранений.");
+                Console.WriteLine("Выход без сохранения");
             }
             else
             {
                 SaveToFile();
-                Console.WriteLine("Данные были сохранены.");
+                Console.WriteLine("Данные были сохранены");
             }
         }
 

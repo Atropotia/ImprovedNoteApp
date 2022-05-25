@@ -113,13 +113,13 @@ namespace ImprovedNoteApp
             {
                 foreach (Worker employee in worker)
                 {
-                    sw.WriteLine($"{employee.iD}#" + " " +
-                                 $"{employee.currentTime}#" + " " +
-                                 $"{employee.name}#" + " " +
-                                 $"{employee.age}#" + " " +
-                                 $"{employee.height}#" + " " +
-                                 $"{employee.birthDate}#" + " " +
-                                 $"{employee.birthPlace}");
+                    sw.WriteLine($"{employee.ID}#" + " " +
+                                 $"{employee.CurrentTime}#" + " " +
+                                 $"{employee.Name}#" + " " +
+                                 $"{employee.Age}#" + " " +
+                                 $"{employee.Height}#" + " " +
+                                 $"{employee.BirthDate}#" + " " +
+                                 $"{employee.BirthPlace}");
                 }
             }
         }
@@ -132,7 +132,7 @@ namespace ImprovedNoteApp
             try
             {
                 int cid = int.Parse(Console.ReadLine());
-                Console.Write($"Редактируемые данные о работнике: {worker[cid].iD} ");
+                Console.Write($"Редактируемые данные о работнике: {worker[cid].ID} ");
                 ID = cid;
             }
             catch
@@ -173,15 +173,15 @@ namespace ImprovedNoteApp
 
             foreach (Worker employee in worker)
             {
-                if (employee.currentTime >= min && employee.currentTime <= max)
+                if (employee.CurrentTime >= min && employee.CurrentTime <= max)
                 {
-                    Console.WriteLine($"{employee.iD}" + " " +
-                                 $"{employee.currentTime}" + " " +
-                                 $"{employee.name}#" + " " +
-                                 $"{employee.age}#" + " " +
-                                 $"{employee.height}#" + " " +
-                                 $"{employee.birthDate}#" + " " +
-                                 $"{employee.birthPlace}");
+                    Console.WriteLine($"{employee.ID}" + " " +
+                                 $"{employee.CurrentTime}" + " " +
+                                 $"{employee.Name}#" + " " +
+                                 $"{employee.Age}#" + " " +
+                                 $"{employee.Height}#" + " " +
+                                 $"{employee.BirthDate}#" + " " +
+                                 $"{employee.BirthPlace}");
                 }
             }
 
@@ -198,13 +198,13 @@ namespace ImprovedNoteApp
             {
                 foreach (Worker employee in worker)
                 {
-                    Console.WriteLine($"{employee.iD}" + " " +
-                                 $"{employee.currentTime}" + " " +
-                                 $"{employee.name}" + " " +
-                                 $"{employee.age}" + " " +
-                                 $"{employee.height}" + " " +
-                                 $"{employee.birthDate}" + " " +
-                                 $"{employee.birthPlace}");
+                    Console.WriteLine($"{employee.ID}" + " " +
+                                 $"{employee.CurrentTime}" + " " +
+                                 $"{employee.Name}" + " " +
+                                 $"{employee.Age}" + " " +
+                                 $"{employee.Height}" + " " +
+                                 $"{employee.BirthDate}" + " " +
+                                 $"{employee.BirthPlace}");
                 }
             }
 
@@ -221,14 +221,14 @@ namespace ImprovedNoteApp
 
             for (int i = 0; i < list.Length; i++)
             {
-                counter[i] = worker[i].currentTime;
+                counter[i] = worker[i].CurrentTime;
                 list[i] =
-                    worker[i].iD + " " +
-                    worker[i].name + " " +
-                    worker[i].age + " " +
-                    worker[i].height + " " +
-                    worker[i].birthDate + " " +
-                    worker[i].birthPlace + " ";
+                    worker[i].ID + " " +
+                    worker[i].Name + " " +
+                    worker[i].Age + " " +
+                    worker[i].Height + " " +
+                    worker[i].BirthDate + " " +
+                    worker[i].BirthPlace + " ";
             }
 
             Array.Sort(counter, list);
@@ -252,14 +252,14 @@ namespace ImprovedNoteApp
 
             for (int i = 0; i < list.Length; i++)
             {
-                counter[i] = worker[i].currentTime;
+                counter[i] = worker[i].CurrentTime;
                 list[i] =
-                    worker[i].iD + " " +
-                    worker[i].name + " " +
-                    worker[i].age + " " +
-                    worker[i].height + " " +
-                    worker[i].birthDate + " " +
-                    worker[i].birthPlace + " ";
+                    worker[i].ID + " " +
+                    worker[i].Name + " " +
+                    worker[i].Age + " " +
+                    worker[i].Height + " " +
+                    worker[i].BirthDate + " " +
+                    worker[i].BirthPlace + " ";
             }
 
             Array.Sort(counter, list);
@@ -295,7 +295,7 @@ namespace ImprovedNoteApp
         {
             Console.WriteLine("Введите ID сотрудника для удаления");
             string id = Console.ReadLine().ToString();
-            List<Worker> notesForDelete = worker.FindAll(note => note.iD.ToString() == id);
+            List<Worker> notesForDelete = worker.FindAll(note => note.ID.ToString() == id);
             if (notesForDelete.Count == 0)
             {
                 Console.WriteLine($"Записи с номером {id} не найдено");

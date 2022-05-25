@@ -15,49 +15,49 @@ namespace ImprovedNoteApp
         /// <summary>
         /// ID сотрудника
         /// </summary>
-        public int iD { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// Дата и время добавления сотрудника
         /// </summary>
-        public DateTime currentTime { get; set; }
+        public DateTime CurrentTime { get; set; }
 
         /// <summary>
         /// Имя сотрудника
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Возраст сотрудника
         /// </summary>
-        public int age { get; set; }
+        public int Age { get; set; }
 
         /// <summary>
         /// Рост сотрудника
         /// </summary>
-        public int height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// Дата рождения сотрудника
         /// </summary>
-        public DateTime birthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         /// <summary>
         /// Место рождения сотрудника
         /// </summary>
-        public string birthPlace { get; set; }
+        public string BirthPlace { get; set; }
  
         public Worker(string input)
         {
             string[] arr = input.Split('#'); //Добавление # после каждого введённого параметра
 
-            iD = int.Parse(arr[0]);
-            currentTime = DateTime.Parse(arr[1]);
-            name = arr[2];
-            age = int.Parse(arr[3]);
-            height = int.Parse(arr[4]);
-            birthDate = DateTime.Parse(arr[5]);
-            birthPlace = arr[6];
+            ID = int.Parse(arr[0]);
+            CurrentTime = DateTime.Parse(arr[1]);
+            Name = arr[2];
+            Age = int.Parse(arr[3]);
+            Height = int.Parse(arr[4]);
+            BirthDate = DateTime.Parse(arr[5]);
+            BirthPlace = arr[6];
 
         }
     }

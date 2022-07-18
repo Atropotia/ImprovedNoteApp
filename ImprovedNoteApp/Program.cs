@@ -106,23 +106,7 @@ namespace ImprovedNoteApp
             Console.Clear();
         }
 
-        //Сохранение в файл данных
-        static private void SaveToFile()
-        {
-            using (StreamWriter sw = new StreamWriter(path))
-            {
-                foreach (Worker employee in worker)
-                {
-                    sw.WriteLine($"{employee.ID}#" + " " +
-                                 $"{employee.CurrentTime}#" + " " +
-                                 $"{employee.Name}#" + " " +
-                                 $"{employee.Age}#" + " " +
-                                 $"{employee.Height}#" + " " +
-                                 $"{employee.BirthDate}#" + " " +
-                                 $"{employee.BirthPlace}");
-                }
-            }
-        }
+        
 
         //Редактирование записи о сотруднике
         static private void Edit()
